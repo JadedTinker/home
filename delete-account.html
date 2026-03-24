@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account — Ingredient Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      var supported = ['en', 'pl', 'de', 'fr', 'es'];
+      var param = new URLSearchParams(location.search).get('lang');
+      var nav = ((navigator.language || navigator.userLanguage || '')).split('-')[0].toLowerCase();
+      var lang = supported.indexOf(param) !== -1 ? param
+               : supported.indexOf(nav)   !== -1 ? nav
+               : 'en';
+      window.SITE_LANG = lang;
+      document.documentElement.lang = lang;
+    }());
+  </script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Language switcher -->
+    <nav class="lang-switcher" id="lang-switcher">
+      <a href="?lang=en">EN</a>
+      <a href="?lang=pl">PL</a>
+      <a href="?lang=de">DE</a>
+      <a href="?lang=fr">FR</a>
+      <a href="?lang=es">ES</a>
+    </nav>
+
+    <!-- ═══════════════════════════ ENGLISH ═══════════════════════════ -->
+    <div class="lang-block" data-lang="en">
+      <header>
+        <p class="app-name">Ingredient Tracker</p>
+        <h1>Delete Account &amp; Data</h1>
+        <p class="meta">Jaded Tinker &nbsp;·&nbsp; <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a></p>
+      </header>
+      <nav class="breadcrumb"><a href="index.html">Legal</a> › Delete Account</nav>
+      <p style="font-size:0.9375rem;color:var(--text-muted);margin-bottom:1.5rem;">This page describes how to request deletion of your <strong>Ingredient Tracker</strong> account and associated data. Ingredient Tracker is developed by Jaded Tinker (<code>com.jadedtinker.ingredienttracker</code>).</p>
+
+      <section>
+        <h2>How to Delete Your Account</h2>
+        <p>Follow both steps below to fully remove your local data and request deletion of your cloud account.</p>
+        <ol>
+          <li>
+            <strong>Delete local data</strong> — Open the app and go to <strong>Settings → Advanced → Clear All Data</strong>. This permanently removes all on-device data, including ingredient logs, meals, health data, and preferences stored in the local SQLite database.
+          </li>
+          <li>
+            <strong>Request cloud account deletion</strong> — Send an email to <a href="mailto:jadedtinker@proton.me?subject=Account%20Deletion%20Request">jadedtinker@proton.me</a> with the subject <strong>"Account Deletion Request"</strong> and include your registered email address in the message body.
+          </li>
+        </ol>
+        <p>We will process your request and delete your cloud account and all associated data within <strong>30 days</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Data That Will Be Deleted</h2>
+        <ul>
+          <li>Your Supabase account (email address and user ID)</li>
+          <li>All cloud-synced ingredient logs and meal history</li>
+          <li>All cloud-synced health and wellness data (body metrics, symptoms, mood, wellbeing)</li>
+          <li>App settings and preferences stored in the cloud</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Data That Will Be Retained</h2>
+        <ul>
+          <li><strong>Purchase &amp; subscription records (RevenueCat):</strong> Retained as required by law for refund processing, financial records, and tax compliance (typically up to 7 years).</li>
+          <li><strong>Google advertising data:</strong> Managed by Google under their own data retention policies. To opt out of personalized ads, adjust your device's ad settings (iOS: Settings → Privacy → Tracking; Android: Settings → Google → Ads) or purchase Ingredient Tracker Premium.</li>
+        </ul>
+        <p><strong>Note:</strong> On-device data (local SQLite database) is only accessible to you and is removed by Step 1 above or by uninstalling the app. We do not have remote access to your local data.</p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>For questions about account deletion or data removal, contact us at <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>. We will respond within 30 days.</p>
+      </section>
+
+      <footer><p>© 2026 Jaded Tinker. All rights reserved.</p><div class="footer-links"><a href="index.html">Legal Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="mailto:jadedtinker@proton.me">Contact</a></div></footer>
+    </div>
+
+    <!-- ═══════════════════════════ POLISH ═══════════════════════════ -->
+    <div class="lang-block" data-lang="pl" hidden>
+      <header>
+        <p class="app-name">Ingredient Tracker</p>
+        <h1>Usuń Konto i Dane</h1>
+        <p class="meta">Jaded Tinker &nbsp;·&nbsp; <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a></p>
+      </header>
+      <nav class="breadcrumb"><a href="index.html?lang=pl">Dokumenty prawne</a> › Usuń Konto</nav>
+      <p style="font-size:0.9375rem;color:var(--text-muted);margin-bottom:1.5rem;">Ta strona opisuje, jak poprosić o usunięcie konta w aplikacji <strong>Ingredient Tracker</strong> i powiązanych z nim danych. Aplikacja Ingredient Tracker jest tworzona przez Jaded Tinker (<code>com.jadedtinker.ingredienttracker</code>).</p>
+
+      <section>
+        <h2>Jak usunąć konto</h2>
+        <p>Wykonaj oba poniższe kroki, aby całkowicie usunąć dane lokalne i poprosić o usunięcie konta w chmurze.</p>
+        <ol>
+          <li>
+            <strong>Usuń dane lokalne</strong> — Otwórz aplikację i przejdź do <strong>Ustawienia → Zaawansowane → Wyczyść wszystkie dane</strong>. Spowoduje to trwałe usunięcie wszystkich danych zapisanych na urządzeniu: dzienników składników, posiłków, danych zdrowotnych i preferencji zapisanych w lokalnej bazie danych SQLite.
+          </li>
+          <li>
+            <strong>Poproś o usunięcie konta w chmurze</strong> — Wyślij e-mail na adres <a href="mailto:jadedtinker@proton.me?subject=Pro%C5%9Bba%20o%20usuni%C4%99cie%20konta">jadedtinker@proton.me</a> z tematem <strong>„Prośba o usunięcie konta"</strong> i podaj w wiadomości swój zarejestrowany adres e-mail.
+          </li>
+        </ol>
+        <p>Rozpatrzymy Twoją prośbę i usuniemy konto w chmurze wraz ze wszystkimi powiązanymi danymi w ciągu <strong>30 dni</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Dane, które zostaną usunięte</h2>
+        <ul>
+          <li>Twoje konto Supabase (adres e-mail i identyfikator użytkownika)</li>
+          <li>Wszystkie zsynchronizowane dzienniki składników i historia posiłków</li>
+          <li>Wszystkie zsynchronizowane dane zdrowotne i dotyczące samopoczucia (parametry ciała, objawy, nastrój, samopoczucie)</li>
+          <li>Ustawienia i preferencje aplikacji przechowywane w chmurze</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Dane, które zostaną zachowane</h2>
+        <ul>
+          <li><strong>Rekordy zakupów i subskrypcji (RevenueCat):</strong> Przechowywane zgodnie z wymogami prawa na potrzeby obsługi zwrotów, dokumentacji finansowej i rozliczeń podatkowych (zazwyczaj do 7 lat).</li>
+          <li><strong>Dane reklamowe Google:</strong> Zarządzane przez Google zgodnie z ich własną polityką przechowywania danych. Aby zrezygnować z reklam spersonalizowanych, skorzystaj z ustawień reklam na swoim urządzeniu (iOS: Ustawienia → Prywatność → Śledzenie; Android: Ustawienia → Google → Reklamy) lub kup Ingredient Tracker Premium.</li>
+        </ul>
+        <p><strong>Uwaga:</strong> Dane lokalne na urządzeniu (lokalna baza danych SQLite) są dostępne wyłącznie dla Ciebie i są usuwane w kroku 1 powyżej lub po odinstalowaniu aplikacji. Nie mamy zdalnego dostępu do Twoich lokalnych danych.</p>
+      </section>
+
+      <section>
+        <h2>Kontakt</h2>
+        <p>W razie pytań dotyczących usunięcia konta lub danych skontaktuj się z nami pod adresem <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>. Odpowiemy w ciągu 30 dni.</p>
+      </section>
+
+      <footer><p>© 2026 Jaded Tinker. Wszelkie prawa zastrzeżone.</p><div class="footer-links"><a href="index.html?lang=pl">Dokumenty prawne</a><a href="privacy.html?lang=pl">Polityka prywatności</a><a href="terms.html?lang=pl">Warunki korzystania</a><a href="mailto:jadedtinker@proton.me">Kontakt</a></div></footer>
+    </div>
+
+    <!-- ═══════════════════════════ GERMAN ═══════════════════════════ -->
+    <div class="lang-block" data-lang="de" hidden>
+      <header>
+        <p class="app-name">Ingredient Tracker</p>
+        <h1>Konto und Daten löschen</h1>
+        <p class="meta">Jaded Tinker &nbsp;·&nbsp; <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a></p>
+      </header>
+      <nav class="breadcrumb"><a href="index.html?lang=de">Rechtliches</a> › Konto löschen</nav>
+      <p style="font-size:0.9375rem;color:var(--text-muted);margin-bottom:1.5rem;">Diese Seite beschreibt, wie Sie die Löschung Ihres <strong>Ingredient Tracker</strong>-Kontos und der damit verbundenen Daten beantragen können. Ingredient Tracker wird von Jaded Tinker entwickelt (<code>com.jadedtinker.ingredienttracker</code>).</p>
+
+      <section>
+        <h2>So löschen Sie Ihr Konto</h2>
+        <p>Führen Sie beide folgenden Schritte aus, um Ihre lokalen Daten vollständig zu entfernen und die Löschung Ihres Cloud-Kontos zu beantragen.</p>
+        <ol>
+          <li>
+            <strong>Lokale Daten löschen</strong> — Öffnen Sie die App und gehen Sie zu <strong>Einstellungen → Erweitert → Alle Daten löschen</strong>. Dadurch werden alle auf dem Gerät gespeicherten Daten dauerhaft entfernt: Zutatenlogs, Mahlzeiten, Gesundheitsdaten und Einstellungen in der lokalen SQLite-Datenbank.
+          </li>
+          <li>
+            <strong>Cloud-Konto-Löschung beantragen</strong> — Senden Sie eine E-Mail an <a href="mailto:jadedtinker@proton.me?subject=Antrag%20auf%20Kontol%C3%B6schung">jadedtinker@proton.me</a> mit dem Betreff <strong>„Antrag auf Kontolöschung"</strong> und geben Sie in der Nachricht Ihre registrierte E-Mail-Adresse an.
+          </li>
+        </ol>
+        <p>Wir werden Ihre Anfrage bearbeiten und Ihr Cloud-Konto sowie alle zugehörigen Daten innerhalb von <strong>30 Tagen</strong> löschen.</p>
+      </section>
+
+      <section>
+        <h2>Zu löschende Daten</h2>
+        <ul>
+          <li>Ihr Supabase-Konto (E-Mail-Adresse und Benutzer-ID)</li>
+          <li>Alle cloud-synchronisierten Zutatenlogs und der Mahlzeitenverlauf</li>
+          <li>Alle cloud-synchronisierten Gesundheits- und Wellnessdaten (Körperwerte, Symptome, Stimmung, Wohlbefinden)</li>
+          <li>In der Cloud gespeicherte App-Einstellungen und Präferenzen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Aufzubewahrende Daten</h2>
+        <ul>
+          <li><strong>Kauf- und Abonnementdatensätze (RevenueCat):</strong> Werden gesetzlich vorgeschrieben für Rückabwicklungen, Finanzunterlagen und Steuerpflichten aufbewahrt (in der Regel bis zu 7 Jahre).</li>
+          <li><strong>Google-Werbedaten:</strong> Werden von Google gemäß deren eigenen Datenaufbewahrungsrichtlinien verwaltet. Um personalisierte Werbung zu deaktivieren, nutzen Sie die Werbeeinstellungen Ihres Geräts (iOS: Einstellungen → Datenschutz → Tracking; Android: Einstellungen → Google → Werbung) oder erwerben Sie Ingredient Tracker Premium.</li>
+        </ul>
+        <p><strong>Hinweis:</strong> Lokale Gerätedaten (SQLite-Datenbank) sind nur für Sie zugänglich und werden durch Schritt 1 oben oder durch Deinstallation der App entfernt. Wir haben keinen Fernzugriff auf Ihre lokalen Daten.</p>
+      </section>
+
+      <section>
+        <h2>Kontakt</h2>
+        <p>Bei Fragen zur Kontolöschung oder Datenlöschung wenden Sie sich an <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>. Wir antworten innerhalb von 30 Tagen.</p>
+      </section>
+
+      <footer><p>© 2026 Jaded Tinker. Alle Rechte vorbehalten.</p><div class="footer-links"><a href="index.html?lang=de">Rechtliches</a><a href="privacy.html?lang=de">Datenschutzerklärung</a><a href="terms.html?lang=de">Nutzungsbedingungen</a><a href="mailto:jadedtinker@proton.me">Kontakt</a></div></footer>
+    </div>
+
+    <!-- ═══════════════════════════ FRENCH ═══════════════════════════ -->
+    <div class="lang-block" data-lang="fr" hidden>
+      <header>
+        <p class="app-name">Ingredient Tracker</p>
+        <h1>Supprimer le Compte et les Données</h1>
+        <p class="meta">Jaded Tinker &nbsp;·&nbsp; <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a></p>
+      </header>
+      <nav class="breadcrumb"><a href="index.html?lang=fr">Documents Légaux</a> › Supprimer le Compte</nav>
+      <p style="font-size:0.9375rem;color:var(--text-muted);margin-bottom:1.5rem;">Cette page explique comment demander la suppression de votre compte <strong>Ingredient Tracker</strong> et des données associées. Ingredient Tracker est développé par Jaded Tinker (<code>com.jadedtinker.ingredienttracker</code>).</p>
+
+      <section>
+        <h2>Comment supprimer votre compte</h2>
+        <p>Suivez les deux étapes ci-dessous pour supprimer intégralement vos données locales et demander la suppression de votre compte cloud.</p>
+        <ol>
+          <li>
+            <strong>Effacer les données locales</strong> — Ouvrez l'application et accédez à <strong>Paramètres → Avancé → Effacer toutes les données</strong>. Cela supprimera définitivement toutes les données stockées sur l'appareil : journaux d'ingrédients, repas, données de santé et préférences enregistrés dans la base de données SQLite locale.
+          </li>
+          <li>
+            <strong>Demander la suppression du compte cloud</strong> — Envoyez un e-mail à <a href="mailto:jadedtinker@proton.me?subject=Demande%20de%20suppression%20de%20compte">jadedtinker@proton.me</a> avec l'objet <strong>« Demande de suppression de compte »</strong> et indiquez votre adresse e-mail enregistrée dans le corps du message.
+          </li>
+        </ol>
+        <p>Nous traiterons votre demande et supprimerons votre compte cloud ainsi que toutes les données associées dans un délai de <strong>30 jours</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Données qui seront supprimées</h2>
+        <ul>
+          <li>Votre compte Supabase (adresse e-mail et identifiant utilisateur)</li>
+          <li>Tous les journaux d'ingrédients et l'historique des repas synchronisés dans le cloud</li>
+          <li>Toutes les données de santé et de bien-être synchronisées (métriques corporelles, symptômes, humeur, bien-être)</li>
+          <li>Paramètres et préférences de l'application stockés dans le cloud</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Données conservées</h2>
+        <ul>
+          <li><strong>Enregistrements d'achats et d'abonnements (RevenueCat) :</strong> Conservés conformément à la loi pour le traitement des remboursements, les documents financiers et les obligations fiscales (généralement jusqu'à 7 ans).</li>
+          <li><strong>Données publicitaires Google :</strong> Gérées par Google selon leurs propres politiques de conservation des données. Pour désactiver la publicité personnalisée, utilisez les paramètres publicitaires de votre appareil (iOS : Réglages → Confidentialité → Suivi ; Android : Paramètres → Google → Annonces) ou achetez Ingredient Tracker Premium.</li>
+        </ul>
+        <p><strong>Remarque :</strong> Les données locales sur l'appareil (base de données SQLite) ne sont accessibles qu'à vous et sont supprimées à l'étape 1 ci-dessus ou lors de la désinstallation de l'application. Nous n'avons pas accès à distance à vos données locales.</p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Pour toute question concernant la suppression de compte ou de données, contactez-nous à <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>. Nous répondrons dans un délai de 30 jours.</p>
+      </section>
+
+      <footer><p>© 2026 Jaded Tinker. Tous droits réservés.</p><div class="footer-links"><a href="index.html?lang=fr">Documents Légaux</a><a href="privacy.html?lang=fr">Politique de Confidentialité</a><a href="terms.html?lang=fr">Conditions d'Utilisation</a><a href="mailto:jadedtinker@proton.me">Contact</a></div></footer>
+    </div>
+
+    <!-- ═══════════════════════════ SPANISH ═══════════════════════════ -->
+    <div class="lang-block" data-lang="es" hidden>
+      <header>
+        <p class="app-name">Ingredient Tracker</p>
+        <h1>Eliminar Cuenta y Datos</h1>
+        <p class="meta">Jaded Tinker &nbsp;·&nbsp; <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a></p>
+      </header>
+      <nav class="breadcrumb"><a href="index.html?lang=es">Documentos Legales</a> › Eliminar Cuenta</nav>
+      <p style="font-size:0.9375rem;color:var(--text-muted);margin-bottom:1.5rem;">Esta página describe cómo solicitar la eliminación de su cuenta de <strong>Ingredient Tracker</strong> y los datos asociados. Ingredient Tracker es desarrollado por Jaded Tinker (<code>com.jadedtinker.ingredienttracker</code>).</p>
+
+      <section>
+        <h2>Cómo eliminar su cuenta</h2>
+        <p>Siga los dos pasos a continuación para eliminar completamente sus datos locales y solicitar la eliminación de su cuenta en la nube.</p>
+        <ol>
+          <li>
+            <strong>Borrar datos locales</strong> — Abra la aplicación y vaya a <strong>Configuración → Avanzado → Borrar todos los datos</strong>. Esto eliminará permanentemente todos los datos almacenados en el dispositivo: registros de ingredientes, comidas, datos de salud y preferencias guardados en la base de datos SQLite local.
+          </li>
+          <li>
+            <strong>Solicitar la eliminación de la cuenta en la nube</strong> — Envíe un correo electrónico a <a href="mailto:jadedtinker@proton.me?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20cuenta">jadedtinker@proton.me</a> con el asunto <strong>"Solicitud de eliminación de cuenta"</strong> e incluya su dirección de correo electrónico registrada en el cuerpo del mensaje.
+          </li>
+        </ol>
+        <p>Procesaremos su solicitud y eliminaremos su cuenta en la nube y todos los datos asociados en un plazo de <strong>30 días</strong>.</p>
+      </section>
+
+      <section>
+        <h2>Datos que serán eliminados</h2>
+        <ul>
+          <li>Su cuenta de Supabase (dirección de correo electrónico e ID de usuario)</li>
+          <li>Todos los registros de ingredientes e historial de comidas sincronizados en la nube</li>
+          <li>Todos los datos de salud y bienestar sincronizados (métricas corporales, síntomas, estado de ánimo, bienestar)</li>
+          <li>Configuración y preferencias de la aplicación almacenadas en la nube</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Datos que se conservarán</h2>
+        <ul>
+          <li><strong>Registros de compras y suscripciones (RevenueCat):</strong> Conservados según lo exige la ley para el procesamiento de reembolsos, registros financieros y cumplimiento fiscal (generalmente hasta 7 años).</li>
+          <li><strong>Datos publicitarios de Google:</strong> Gestionados por Google según sus propias políticas de retención de datos. Para desactivar los anuncios personalizados, use la configuración de anuncios de su dispositivo (iOS: Configuración → Privacidad → Seguimiento; Android: Configuración → Google → Anuncios) o compre Ingredient Tracker Premium.</li>
+        </ul>
+        <p><strong>Nota:</strong> Los datos locales en el dispositivo (base de datos SQLite) solo son accesibles para usted y se eliminan en el paso 1 anterior o al desinstalar la aplicación. No tenemos acceso remoto a sus datos locales.</p>
+      </section>
+
+      <section>
+        <h2>Contacto</h2>
+        <p>Para preguntas sobre la eliminación de cuenta o datos, contáctenos en <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>. Responderemos en un plazo de 30 días.</p>
+      </section>
+
+      <footer><p>© 2026 Jaded Tinker. Todos los derechos reservados.</p><div class="footer-links"><a href="index.html?lang=es">Documentos Legales</a><a href="privacy.html?lang=es">Política de Privacidad</a><a href="terms.html?lang=es">Términos de Servicio</a><a href="mailto:jadedtinker@proton.me">Contacto</a></div></footer>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var lang = window.SITE_LANG;
+      var blocks = document.querySelectorAll('.lang-block');
+      for (var i = 0; i < blocks.length; i++) {
+        blocks[i].hidden = blocks[i].dataset.lang !== lang;
+      }
+      var links = document.querySelectorAll('#lang-switcher a');
+      for (var j = 0; j < links.length; j++) {
+        var href = links[j].getAttribute('href');
+        if (href === '?lang=' + lang) {
+          links[j].classList.add('active');
+        }
+      }
+    }());
+  </script>
+</body>
+</html>
