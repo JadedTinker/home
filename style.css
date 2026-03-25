@@ -1,4 +1,8 @@
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 :root {
   --bg: #ffffff;
@@ -19,21 +23,25 @@
     --border: #334155;
     --text: #f1f5f9;
     --text-muted: #94a3b8;
-    --primary: #60a5fa;
+    --primary: #93c5fd;
     --warning-bg: #1c0a0a;
     --warning-border: #7f1d1d;
     --warning-text: #fca5a5;
   }
 }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+}
 
 body {
   margin: 0;
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   line-height: 1.65;
 }
 
@@ -104,14 +112,18 @@ section p {
   color: var(--text-muted);
 }
 
-section p:last-child { margin-bottom: 0; }
+section p:last-child {
+  margin-bottom: 0;
+}
 
 section ul {
   margin: 0.25rem 0 0.6rem 1.25rem;
   padding: 0;
 }
 
-section ul:last-child { margin-bottom: 0; }
+section ul:last-child {
+  margin-bottom: 0;
+}
 
 section li {
   font-size: 0.9375rem;
@@ -127,7 +139,9 @@ section .sub-heading {
   display: block;
 }
 
-section .sub-heading:first-child { margin-top: 0; }
+section .sub-heading:first-child {
+  margin-top: 0;
+}
 
 /* Medical disclaimer box */
 .disclaimer {
@@ -159,7 +173,11 @@ section .sub-heading:first-child { margin-top: 0; }
   border-top: 1px solid var(--border);
 }
 
-.provider:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+.provider:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
 
 .provider-name {
   font-size: 0.875rem;
@@ -181,7 +199,9 @@ section .sub-heading:first-child { margin-top: 0; }
   text-decoration: none;
 }
 
-.provider-policy a:hover { text-decoration: underline; }
+.provider-policy a:hover {
+  text-decoration: underline;
+}
 
 /* Footer */
 footer {
@@ -202,7 +222,9 @@ footer a {
   text-decoration: none;
 }
 
-footer a:hover { text-decoration: underline; }
+footer a:hover {
+  text-decoration: underline;
+}
 
 footer .footer-links {
   display: flex;
@@ -229,7 +251,9 @@ footer .footer-links {
   border: 1px solid var(--border);
   color: var(--text-muted);
   text-decoration: none;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .lang-switcher a:hover,
@@ -250,4 +274,6 @@ footer .footer-links {
   text-decoration: none;
 }
 
-.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
