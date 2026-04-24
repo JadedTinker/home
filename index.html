@@ -10,6 +10,23 @@
     />
     <link rel="icon" type="image/png" href="img/icon.png" />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      (function () {
+        var supported = ["en", "pl", "de", "fr", "es"];
+        var param = new URLSearchParams(location.search).get("lang");
+        var nav = (navigator.language || navigator.userLanguage || "")
+          .split("-")[0]
+          .toLowerCase();
+        var lang =
+          supported.indexOf(param) !== -1
+            ? param
+            : supported.indexOf(nav) !== -1
+              ? nav
+              : "en";
+        window.SITE_LANG = lang;
+        document.documentElement.lang = lang;
+      })();
+    </script>
     <style>
       :root {
         --home-bg: #f8fbf2;
@@ -546,43 +563,51 @@
   </head>
   <body class="legal-homepage">
     <div class="container">
+      <nav class="lang-switcher" id="lang-switcher" aria-label="Language">
+        <a href="?lang=en">EN</a>
+        <a href="?lang=pl">PL</a>
+        <a href="?lang=de">DE</a>
+        <a href="?lang=fr">FR</a>
+        <a href="?lang=es">ES</a>
+      </nav>
+
       <header class="site-header">
         <a class="brand" href="./" aria-label="FoodTrace home">
           <img src="img/icon.png" alt="FoodTrace icon" />
           <span>FoodTrace</span>
         </a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="#features">Features</a>
-          <a href="#legal">Legal</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="mailto:jadedtinker@proton.me">Contact</a>
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#legal" data-i18n="nav.legal">Legal</a>
+          <a href="privacy.html" data-i18n="nav.privacy" data-localized-link="true">Privacy</a>
+          <a href="terms.html" data-i18n="nav.terms" data-localized-link="true">Terms</a>
+          <a href="mailto:jadedtinker@proton.me" data-i18n="nav.contact">Contact</a>
         </nav>
       </header>
 
       <main>
         <section class="app-hero" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <span class="eyebrow">Food &amp; symptom diary</span>
-            <h1 id="hero-title">Understand what your meals are telling you.</h1>
-            <p class="hero-lede">
+            <span class="eyebrow" data-i18n="hero.eyebrow">Food &amp; symptom diary</span>
+            <h1 id="hero-title" data-i18n="hero.title">Understand what your meals are telling you.</h1>
+            <p class="hero-lede" data-i18n="hero.lede">
               FoodTrace helps you log food, symptoms, macros, water, and daily
               context so patterns become easier to spot. Built offline-first,
               private by default, and ready for the moments when your body
               leaves clues.
             </p>
             <div class="hero-actions" aria-label="Important links">
-              <a class="button-link primary" href="#features"
+              <a class="button-link primary" href="#features" data-i18n="hero.primaryCta"
                 >Explore features</a
               >
-              <a class="button-link secondary" href="#legal"
+              <a class="button-link secondary" href="#legal" data-i18n="hero.secondaryCta"
                 >View legal center</a
               >
             </div>
             <div class="hero-badges" aria-label="FoodTrace highlights">
-              <span>No account required</span>
-              <span>Free cloud sync</span>
-              <span>Android app</span>
+              <span data-i18n="hero.badgeAccount">No account required</span>
+              <span data-i18n="hero.badgeSync">Free cloud sync</span>
+              <span data-i18n="hero.badgeAndroid">Android app</span>
             </div>
           </div>
 
@@ -592,6 +617,7 @@
                 class="feature-graphic"
                 src="img/feature-graphic.png"
                 alt="FoodTrace app preview showing meal, symptom, and analysis screens"
+                data-i18n-alt="images.featureAlt"
                 loading="eager"
               />
             </div>
@@ -600,8 +626,8 @@
 
         <section class="screenshot-gallery" aria-labelledby="screens-title">
           <div class="section-heading">
-            <h2 id="screens-title">See the daily workflow clearly.</h2>
-            <p>
+            <h2 id="screens-title" data-i18n="screens.title">See the daily workflow clearly.</h2>
+            <p data-i18n="screens.lede">
               Larger previews show how FoodTrace moves from quick logging to
               nutrition context and symptom review.
             </p>
@@ -611,33 +637,36 @@
               <img
                 src="img/screen-1.png"
                 alt="FoodTrace meal log screen"
+                data-i18n-alt="images.screen1Alt"
                 loading="lazy"
               />
               <figcaption>
-                <strong>Log meals fast</strong> with daily food and context in
-                one place.
+                <strong data-i18n="screens.card1Title">Log meals fast</strong>
+                <span data-i18n="screens.card1Text">with daily food and context in one place.</span>
               </figcaption>
             </figure>
             <figure class="screenshot-card">
               <img
                 src="img/screen-2.png"
                 alt="FoodTrace nutrition trends screen"
+                data-i18n-alt="images.screen2Alt"
                 loading="lazy"
               />
               <figcaption>
-                <strong>Review nutrition trends</strong> without guessing what
-                changed.
+                <strong data-i18n="screens.card2Title">Review nutrition trends</strong>
+                <span data-i18n="screens.card2Text">without guessing what changed.</span>
               </figcaption>
             </figure>
             <figure class="screenshot-card">
               <img
                 src="img/screen-3.png"
                 alt="FoodTrace symptom tracking screen"
+                data-i18n-alt="images.screen3Alt"
                 loading="lazy"
               />
               <figcaption>
-                <strong>Connect symptoms</strong> to meals, timing, and
-                patterns.
+                <strong data-i18n="screens.card3Title">Connect symptoms</strong>
+                <span data-i18n="screens.card3Text">to meals, timing, and patterns.</span>
               </figcaption>
             </figure>
           </div>
@@ -649,8 +678,8 @@
           aria-labelledby="features-title"
         >
           <div class="section-heading">
-            <h2 id="features-title">A calmer way to track food triggers.</h2>
-            <p>
+            <h2 id="features-title" data-i18n="features.title">A calmer way to track food triggers.</h2>
+            <p data-i18n="features.lede">
               Fast daily logging, honest nutrition data, and symptom context in
               one place - without turning your health notes into a spreadsheet.
             </p>
@@ -659,16 +688,16 @@
           <div class="features">
             <article class="feature">
               <span class="feature-kicker">01</span>
-              <h3>Food &amp; meal logging</h3>
-              <p>
+              <h3 data-i18n="features.card1Title">Food &amp; meal logging</h3>
+              <p data-i18n="features.card1Text">
                 Add ingredients by meal, reuse common foods, save meal
                 templates, and scan packaged products with barcode lookup.
               </p>
             </article>
             <article class="feature">
               <span class="feature-kicker">02</span>
-              <h3>Nutrition that stays honest</h3>
-              <p>
+              <h3 data-i18n="features.card2Title">Nutrition that stays honest</h3>
+              <p data-i18n="features.card2Text">
                 USDA-based nutrition for typed foods and frozen per-100g
                 snapshots for scanned products, with visible AI estimate
                 warnings when fallback estimates are used.
@@ -676,32 +705,32 @@
             </article>
             <article class="feature">
               <span class="feature-kicker">03</span>
-              <h3>Digestion &amp; symptoms</h3>
-              <p>
+              <h3 data-i18n="features.card3Title">Digestion &amp; symptoms</h3>
+              <p data-i18n="features.card3Text">
                 Track heartburn, reflux, bloating, nausea, cramps, diarrhea,
                 intensity, stool type, stress, sleep, mood, and hydration.
               </p>
             </article>
             <article class="feature">
               <span class="feature-kicker">04</span>
-              <h3>Trends &amp; patterns</h3>
-              <p>
+              <h3 data-i18n="features.card4Title">Trends &amp; patterns</h3>
+              <p data-i18n="features.card4Text">
                 Review macro trends, symptom overlays, heatmaps, meal
                 comparisons, and streaks so repeated patterns are easier to see.
               </p>
             </article>
             <article class="feature">
               <span class="feature-kicker">05</span>
-              <h3>Elimination support</h3>
-              <p>
+              <h3 data-i18n="features.card5Title">Elimination support</h3>
+              <p data-i18n="features.card5Text">
                 Follow elimination, reintroduction, and stabilization phases for
                 low-FODMAP, gluten, dairy, or your own protocol.
               </p>
             </article>
             <article class="feature">
               <span class="feature-kicker">06</span>
-              <h3>Backup &amp; sync</h3>
-              <p>
+              <h3 data-i18n="features.card6Title">Backup &amp; sync</h3>
+              <p data-i18n="features.card6Text">
                 Use FoodTrace fully offline, sign in for optional free cloud
                 sync, or export local backups and CSV files when you need them.
               </p>
@@ -709,16 +738,15 @@
           </div>
 
           <p class="premium-note">
-            <strong>Premium adds more depth:</strong> ingredient-symptom
-            correlations, photo meal logging, unlimited meal templates, clinical
-            PDF export, and AI focus summaries.
+            <strong data-i18n="premium.title">Premium adds more depth:</strong>
+            <span data-i18n="premium.text">ingredient-symptom correlations, photo meal logging, unlimited meal templates, clinical PDF export, and AI focus summaries.</span>
           </p>
         </section>
 
         <section class="legal-hub" id="legal" aria-labelledby="legal-title">
           <div class="section-heading">
-            <h2 id="legal-title">Legal center</h2>
-            <p>
+            <h2 id="legal-title" data-i18n="legal.title">Legal center</h2>
+            <p data-i18n="legal.lede">
               Clear policies for a personal food and symptom diary. These pages
               explain how FoodTrace works, what it is not, and how to contact
               us.
@@ -726,48 +754,48 @@
           </div>
 
           <div class="legal-grid">
-            <a class="legal-card" href="privacy.html">
-              <span>Privacy</span>
+            <a class="legal-card" href="privacy.html" data-localized-link="true">
+              <span data-i18n="legal.privacyKicker">Privacy</span>
               <div>
-                <strong>Privacy Policy</strong>
-                <p>
+                <strong data-i18n="legal.privacyTitle">Privacy Policy</strong>
+                <p data-i18n="legal.privacyText">
                   How app data, sync, purchases, analytics, and providers are
                   handled.
                 </p>
               </div>
             </a>
-            <a class="legal-card" href="terms.html">
-              <span>Terms</span>
+            <a class="legal-card" href="terms.html" data-localized-link="true">
+              <span data-i18n="legal.termsKicker">Terms</span>
               <div>
-                <strong>Terms of Service</strong>
-                <p>
+                <strong data-i18n="legal.termsTitle">Terms of Service</strong>
+                <p data-i18n="legal.termsText">
                   Usage rules, limitations, subscriptions, and medical
                   disclaimers.
                 </p>
               </div>
             </a>
-            <a class="legal-card" href="delete-account.html">
-              <span>Account</span>
+            <a class="legal-card" href="delete-account.html" data-localized-link="true">
+              <span data-i18n="legal.accountKicker">Account</span>
               <div>
-                <strong>Delete Account</strong>
-                <p>
+                <strong data-i18n="legal.accountTitle">Delete Account</strong>
+                <p data-i18n="legal.accountText">
                   Steps for deleting your account and understanding data
                   removal.
                 </p>
               </div>
             </a>
             <a class="legal-card" href="mailto:jadedtinker@proton.me">
-              <span>Support</span>
+              <span data-i18n="legal.supportKicker">Support</span>
               <div>
-                <strong>Contact</strong>
-                <p>Questions about FoodTrace, privacy, or account requests.</p>
+                <strong data-i18n="legal.supportTitle">Contact</strong>
+                <p data-i18n="legal.supportText">Questions about FoodTrace, privacy, or account requests.</p>
               </div>
             </a>
           </div>
 
           <div class="disclaimer">
-            <span class="disclaimer-title">Not a medical device</span>
-            <p>
+            <span class="disclaimer-title" data-i18n="disclaimer.title">Not a medical device</span>
+            <p data-i18n="disclaimer.text">
               FoodTrace is for personal tracking and reflection. It does not
               provide medical advice, diagnosis, or treatment. If a symptom
               worries you, talk to a qualified healthcare professional.
@@ -782,11 +810,572 @@
           <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
         </p>
         <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="delete-account.html">Delete Account</a>
+          <a href="privacy.html" data-i18n="footer.privacy" data-localized-link="true">Privacy Policy</a>
+          <a href="terms.html" data-i18n="footer.terms" data-localized-link="true">Terms of Service</a>
+          <a href="delete-account.html" data-i18n="footer.delete" data-localized-link="true">Delete Account</a>
         </div>
       </footer>
     </div>
+
+    <script>
+      (function () {
+        var translations = {
+          en: {
+            pageTitle: "FoodTrace - Food and symptom diary",
+            pageDescription:
+              "FoodTrace is an offline-first food and symptom diary. Log meals, macros, hydration, and symptoms to uncover patterns in how food affects you.",
+            nav: {
+              features: "Features",
+              legal: "Legal",
+              privacy: "Privacy",
+              terms: "Terms",
+              contact: "Contact",
+            },
+            hero: {
+              eyebrow: "Food and symptom diary",
+              title: "Understand what your meals are telling you.",
+              lede:
+                "FoodTrace helps you log food, symptoms, macros, water, and daily context so patterns become easier to spot. Built offline-first, private by default, and ready for the moments when your body leaves clues.",
+              primaryCta: "Explore features",
+              secondaryCta: "View legal center",
+              badgeAccount: "No account required",
+              badgeSync: "Free cloud sync",
+              badgeAndroid: "Android app",
+            },
+            images: {
+              featureAlt:
+                "FoodTrace app preview showing meal, symptom, and analysis screens",
+              screen1Alt: "FoodTrace meal log screen",
+              screen2Alt: "FoodTrace nutrition trends screen",
+              screen3Alt: "FoodTrace symptom tracking screen",
+            },
+            screens: {
+              title: "See the daily workflow clearly.",
+              lede:
+                "Larger previews show how FoodTrace moves from quick logging to nutrition context and symptom review.",
+              card1Title: "Log meals fast",
+              card1Text: "with daily food and context in one place.",
+              card2Title: "Review nutrition trends",
+              card2Text: "without guessing what changed.",
+              card3Title: "Connect symptoms",
+              card3Text: "to meals, timing, and patterns.",
+            },
+            features: {
+              title: "A calmer way to track food triggers.",
+              lede:
+                "Fast daily logging, honest nutrition data, and symptom context in one place - without turning your health notes into a spreadsheet.",
+              card1Title: "Food and meal logging",
+              card1Text:
+                "Add ingredients by meal, reuse common foods, save meal templates, and scan packaged products with barcode lookup.",
+              card2Title: "Nutrition that stays honest",
+              card2Text:
+                "USDA-based nutrition for typed foods and frozen per-100g snapshots for scanned products, with visible AI estimate warnings when fallback estimates are used.",
+              card3Title: "Digestion and symptoms",
+              card3Text:
+                "Track heartburn, reflux, bloating, nausea, cramps, diarrhea, intensity, stool type, stress, sleep, mood, and hydration.",
+              card4Title: "Trends and patterns",
+              card4Text:
+                "Review macro trends, symptom overlays, heatmaps, meal comparisons, and streaks so repeated patterns are easier to see.",
+              card5Title: "Elimination support",
+              card5Text:
+                "Follow elimination, reintroduction, and stabilization phases for low-FODMAP, gluten, dairy, or your own protocol.",
+              card6Title: "Backup and sync",
+              card6Text:
+                "Use FoodTrace fully offline, sign in for optional free cloud sync, or export local backups and CSV files when you need them.",
+            },
+            premium: {
+              title: "Premium adds more depth:",
+              text:
+                "ingredient-symptom correlations, photo meal logging, unlimited meal templates, clinical PDF export, and AI focus summaries.",
+            },
+            legal: {
+              title: "Legal center",
+              lede:
+                "Clear policies for a personal food and symptom diary. These pages explain how FoodTrace works, what it is not, and how to contact us.",
+              privacyKicker: "Privacy",
+              privacyTitle: "Privacy Policy",
+              privacyText:
+                "How app data, sync, purchases, analytics, and providers are handled.",
+              termsKicker: "Terms",
+              termsTitle: "Terms of Service",
+              termsText:
+                "Usage rules, limitations, subscriptions, and medical disclaimers.",
+              accountKicker: "Account",
+              accountTitle: "Delete Account",
+              accountText:
+                "Steps for deleting your account and understanding data removal.",
+              supportKicker: "Support",
+              supportTitle: "Contact",
+              supportText:
+                "Questions about FoodTrace, privacy, or account requests.",
+            },
+            disclaimer: {
+              title: "Not a medical device",
+              text:
+                "FoodTrace is for personal tracking and reflection. It does not provide medical advice, diagnosis, or treatment. If a symptom worries you, talk to a qualified healthcare professional.",
+            },
+            footer: {
+              privacy: "Privacy Policy",
+              terms: "Terms of Service",
+              delete: "Delete Account",
+            },
+          },
+          pl: {
+            pageTitle: "FoodTrace - Dziennik jedzenia i objawów",
+            pageDescription:
+              "FoodTrace to dziennik jedzenia i objawów działający offline. Zapisuj posiłki, makra, nawodnienie i objawy, aby odkrywać wzorce w tym, jak jedzenie na Ciebie wpływa.",
+            nav: {
+              features: "Funkcje",
+              legal: "Dokumenty",
+              privacy: "Prywatność",
+              terms: "Warunki",
+              contact: "Kontakt",
+            },
+            hero: {
+              eyebrow: "Dziennik jedzenia i objawów",
+              title: "Zrozum, co mówią Ci Twoje posiłki.",
+              lede:
+                "FoodTrace pomaga zapisywać jedzenie, objawy, makra, wodę i codzienny kontekst, aby łatwiej zauważyć wzorce. Działa najpierw offline, domyślnie chroni prywatność i pomaga wtedy, gdy ciało zostawia wskazówki.",
+              primaryCta: "Zobacz funkcje",
+              secondaryCta: "Centrum prawne",
+              badgeAccount: "Konto nie jest wymagane",
+              badgeSync: "Darmowa synchronizacja",
+              badgeAndroid: "Aplikacja Android",
+            },
+            images: {
+              featureAlt:
+                "Podgląd aplikacji FoodTrace z ekranami posiłków, objawów i analizy",
+              screen1Alt: "Ekran dziennika posiłków FoodTrace",
+              screen2Alt: "Ekran trendów żywieniowych FoodTrace",
+              screen3Alt: "Ekran śledzenia objawów FoodTrace",
+            },
+            screens: {
+              title: "Zobacz codzienny przepływ pracy.",
+              lede:
+                "Większe podglądy pokazują, jak FoodTrace prowadzi od szybkiego zapisu do kontekstu żywieniowego i przeglądu objawów.",
+              card1Title: "Szybko zapisuj posiłki",
+              card1Text: "z jedzeniem i codziennym kontekstem w jednym miejscu.",
+              card2Title: "Przeglądaj trendy żywieniowe",
+              card2Text: "bez zgadywania, co się zmieniło.",
+              card3Title: "Łącz objawy",
+              card3Text: "z posiłkami, czasem i wzorcami.",
+            },
+            features: {
+              title: "Spokojniejszy sposób śledzenia wyzwalaczy.",
+              lede:
+                "Szybki dziennik, uczciwe dane żywieniowe i kontekst objawów w jednym miejscu - bez zamieniania notatek zdrowotnych w arkusz kalkulacyjny.",
+              card1Title: "Zapisywanie jedzenia i posiłków",
+              card1Text:
+                "Dodawaj składniki według posiłków, używaj częstych produktów, zapisuj szablony i skanuj produkty pakowane kodem kreskowym.",
+              card2Title: "Uczciwe dane żywieniowe",
+              card2Text:
+                "Dane USDA dla wpisywanych produktów i zamrożone wartości na 100 g dla skanów, z widocznym ostrzeżeniem przy szacunkach AI.",
+              card3Title: "Trawienie i objawy",
+              card3Text:
+                "Śledź zgagę, refluks, wzdęcia, nudności, skurcze, biegunkę, intensywność, typ stolca, stres, sen, nastrój i nawodnienie.",
+              card4Title: "Trendy i wzorce",
+              card4Text:
+                "Przeglądaj trendy makro, nakładki objawów, mapy cieplne, porównania posiłków i serie, aby łatwiej zobaczyć powtarzalne wzorce.",
+              card5Title: "Wsparcie eliminacji",
+              card5Text:
+                "Przechodź przez fazy eliminacji, reintrodukcji i stabilizacji dla low-FODMAP, glutenu, nabiału lub własnego protokołu.",
+              card6Title: "Kopia zapasowa i synchronizacja",
+              card6Text:
+                "Korzystaj z FoodTrace offline, zaloguj się do opcjonalnej darmowej synchronizacji albo eksportuj lokalne kopie i pliki CSV.",
+            },
+            premium: {
+              title: "Premium dodaje więcej głębi:",
+              text:
+                "korelacje składników i objawów, zdjęciowe dodawanie posiłków, nielimitowane szablony, kliniczny eksport PDF i podsumowania AI.",
+            },
+            legal: {
+              title: "Centrum prawne",
+              lede:
+                "Jasne zasady dla osobistego dziennika jedzenia i objawów. Te strony wyjaśniają, jak działa FoodTrace, czym nie jest i jak się z nami skontaktować.",
+              privacyKicker: "Prywatność",
+              privacyTitle: "Polityka prywatności",
+              privacyText:
+                "Jak obsługiwane są dane aplikacji, synchronizacja, zakupy, analityka i dostawcy.",
+              termsKicker: "Warunki",
+              termsTitle: "Warunki korzystania",
+              termsText:
+                "Zasady użycia, ograniczenia, subskrypcje i zastrzeżenia medyczne.",
+              accountKicker: "Konto",
+              accountTitle: "Usuń konto",
+              accountText:
+                "Kroki usuwania konta i informacje o usuwaniu danych.",
+              supportKicker: "Wsparcie",
+              supportTitle: "Kontakt",
+              supportText:
+                "Pytania o FoodTrace, prywatność lub prośby dotyczące konta.",
+            },
+            disclaimer: {
+              title: "To nie jest urządzenie medyczne",
+              text:
+                "FoodTrace służy do osobistego śledzenia i refleksji. Nie zapewnia porady medycznej, diagnozy ani leczenia. Jeśli objaw Cię niepokoi, skontaktuj się z wykwalifikowanym specjalistą ochrony zdrowia.",
+            },
+            footer: {
+              privacy: "Polityka prywatności",
+              terms: "Warunki korzystania",
+              delete: "Usuń konto",
+            },
+          },
+          de: {
+            pageTitle: "FoodTrace - Essens- und Symptomtagebuch",
+            pageDescription:
+              "FoodTrace ist ein offlinefähiges Essens- und Symptomtagebuch. Protokolliere Mahlzeiten, Makros, Wasser und Symptome, um Muster zu erkennen.",
+            nav: {
+              features: "Funktionen",
+              legal: "Rechtliches",
+              privacy: "Datenschutz",
+              terms: "Bedingungen",
+              contact: "Kontakt",
+            },
+            hero: {
+              eyebrow: "Essens- und Symptomtagebuch",
+              title: "Verstehe, was deine Mahlzeiten dir sagen.",
+              lede:
+                "FoodTrace hilft dir, Essen, Symptome, Makros, Wasser und täglichen Kontext zu erfassen, damit Muster leichter sichtbar werden. Offline zuerst, standardmäßig privat und bereit für die Hinweise deines Körpers.",
+              primaryCta: "Funktionen ansehen",
+              secondaryCta: "Rechtszentrum ansehen",
+              badgeAccount: "Kein Konto erforderlich",
+              badgeSync: "Kostenlose Cloud-Synchronisierung",
+              badgeAndroid: "Android-App",
+            },
+            images: {
+              featureAlt:
+                "FoodTrace App-Vorschau mit Mahlzeiten-, Symptom- und Analysebildschirmen",
+              screen1Alt: "FoodTrace Mahlzeitenprotokoll",
+              screen2Alt: "FoodTrace Ernährungstrends",
+              screen3Alt: "FoodTrace Symptomverfolgung",
+            },
+            screens: {
+              title: "Sieh den täglichen Ablauf klar.",
+              lede:
+                "Größere Vorschauen zeigen, wie FoodTrace vom schnellen Protokollieren zu Ernährungskontext und Symptomüberblick führt.",
+              card1Title: "Mahlzeiten schnell protokollieren",
+              card1Text: "mit Essen und täglichem Kontext an einem Ort.",
+              card2Title: "Ernährungstrends prüfen",
+              card2Text: "ohne zu raten, was sich geändert hat.",
+              card3Title: "Symptome verbinden",
+              card3Text: "mit Mahlzeiten, Zeitpunkt und Mustern.",
+            },
+            features: {
+              title: "Eine ruhigere Art, Auslöser zu verfolgen.",
+              lede:
+                "Schnelles tägliches Protokollieren, ehrliche Nährwertdaten und Symptomkontext an einem Ort - ohne Gesundheitsnotizen zur Tabelle zu machen.",
+              card1Title: "Essen und Mahlzeiten protokollieren",
+              card1Text:
+                "Füge Zutaten nach Mahlzeit hinzu, nutze häufige Lebensmittel erneut, speichere Vorlagen und scanne verpackte Produkte per Barcode.",
+              card2Title: "Nährwerte, die ehrlich bleiben",
+              card2Text:
+                "USDA-basierte Nährwerte für eingegebene Lebensmittel und eingefrorene Werte pro 100 g für Scans, mit sichtbaren Warnungen bei KI-Schätzungen.",
+              card3Title: "Verdauung und Symptome",
+              card3Text:
+                "Verfolge Sodbrennen, Reflux, Blähungen, Übelkeit, Krämpfe, Durchfall, Intensität, Stuhltyp, Stress, Schlaf, Stimmung und Wasser.",
+              card4Title: "Trends und Muster",
+              card4Text:
+                "Prüfe Makrotrends, Symptom-Overlays, Heatmaps, Mahlzeitenvergleiche und Serien, damit wiederkehrende Muster leichter sichtbar werden.",
+              card5Title: "Eliminationsunterstützung",
+              card5Text:
+                "Begleite Eliminations-, Wiedereinführungs- und Stabilisierungsphasen für Low-FODMAP, Gluten, Milchprodukte oder dein eigenes Protokoll.",
+              card6Title: "Backup und Synchronisierung",
+              card6Text:
+                "Nutze FoodTrace vollständig offline, melde dich für optionale kostenlose Cloud-Synchronisierung an oder exportiere lokale Backups und CSV-Dateien.",
+            },
+            premium: {
+              title: "Premium bietet mehr Tiefe:",
+              text:
+                "Korrelationen zwischen Zutaten und Symptomen, Foto-Mahlzeitenprotokoll, unbegrenzte Vorlagen, klinischer PDF-Export und KI-Fokuszusammenfassungen.",
+            },
+            legal: {
+              title: "Rechtszentrum",
+              lede:
+                "Klare Richtlinien für ein persönliches Essens- und Symptomtagebuch. Diese Seiten erklären, wie FoodTrace funktioniert, was es nicht ist und wie du uns kontaktierst.",
+              privacyKicker: "Datenschutz",
+              privacyTitle: "Datenschutzerklärung",
+              privacyText:
+                "Wie App-Daten, Synchronisierung, Käufe, Analysen und Anbieter behandelt werden.",
+              termsKicker: "Bedingungen",
+              termsTitle: "Nutzungsbedingungen",
+              termsText:
+                "Nutzungsregeln, Einschränkungen, Abonnements und medizinische Hinweise.",
+              accountKicker: "Konto",
+              accountTitle: "Konto löschen",
+              accountText:
+                "Schritte zum Löschen deines Kontos und Hinweise zur Datenentfernung.",
+              supportKicker: "Support",
+              supportTitle: "Kontakt",
+              supportText:
+                "Fragen zu FoodTrace, Datenschutz oder Kontoanfragen.",
+            },
+            disclaimer: {
+              title: "Kein Medizinprodukt",
+              text:
+                "FoodTrace dient der persönlichen Verfolgung und Reflexion. Es bietet keine medizinische Beratung, Diagnose oder Behandlung. Wenn dich ein Symptom beunruhigt, sprich mit qualifiziertem medizinischem Fachpersonal.",
+            },
+            footer: {
+              privacy: "Datenschutzerklärung",
+              terms: "Nutzungsbedingungen",
+              delete: "Konto löschen",
+            },
+          },
+          fr: {
+            pageTitle: "FoodTrace - Journal alimentaire et symptômes",
+            pageDescription:
+              "FoodTrace est un journal alimentaire et de symptômes utilisable hors ligne. Notez repas, macros, hydratation et symptômes pour repérer des tendances.",
+            nav: {
+              features: "Fonctions",
+              legal: "Légal",
+              privacy: "Confidentialité",
+              terms: "Conditions",
+              contact: "Contact",
+            },
+            hero: {
+              eyebrow: "Journal alimentaire et symptômes",
+              title: "Comprenez ce que vos repas vous disent.",
+              lede:
+                "FoodTrace vous aide à noter aliments, symptômes, macros, eau et contexte quotidien afin de mieux voir les tendances. Conçu pour fonctionner hors ligne, privé par défaut et utile quand votre corps laisse des indices.",
+              primaryCta: "Voir les fonctions",
+              secondaryCta: "Voir le centre légal",
+              badgeAccount: "Aucun compte requis",
+              badgeSync: "Synchronisation cloud gratuite",
+              badgeAndroid: "Application Android",
+            },
+            images: {
+              featureAlt:
+                "Aperçu de FoodTrace avec écrans de repas, symptômes et analyse",
+              screen1Alt: "Écran du journal des repas FoodTrace",
+              screen2Alt: "Écran des tendances nutritionnelles FoodTrace",
+              screen3Alt: "Écran de suivi des symptômes FoodTrace",
+            },
+            screens: {
+              title: "Visualisez clairement le quotidien.",
+              lede:
+                "De grands aperçus montrent comment FoodTrace relie la saisie rapide au contexte nutritionnel et au suivi des symptômes.",
+              card1Title: "Notez vite vos repas",
+              card1Text: "avec aliments et contexte quotidien au même endroit.",
+              card2Title: "Analysez les tendances nutritionnelles",
+              card2Text: "sans deviner ce qui a changé.",
+              card3Title: "Reliez les symptômes",
+              card3Text: "aux repas, au moment et aux tendances.",
+            },
+            features: {
+              title: "Une façon plus calme de suivre les déclencheurs.",
+              lede:
+                "Une saisie quotidienne rapide, des données nutritionnelles honnêtes et le contexte des symptômes au même endroit - sans transformer vos notes santé en tableur.",
+              card1Title: "Journal des aliments et repas",
+              card1Text:
+                "Ajoutez des ingrédients par repas, réutilisez vos aliments fréquents, enregistrez des modèles et scannez les produits emballés.",
+              card2Title: "Une nutrition transparente",
+              card2Text:
+                "Données USDA pour les aliments saisis et valeurs figées par 100 g pour les scans, avec avertissements visibles pour les estimations IA.",
+              card3Title: "Digestion et symptômes",
+              card3Text:
+                "Suivez brûlures, reflux, ballonnements, nausées, crampes, diarrhée, intensité, type de selles, stress, sommeil, humeur et hydratation.",
+              card4Title: "Tendances et motifs",
+              card4Text:
+                "Consultez tendances macro, superpositions de symptômes, cartes de chaleur, comparaisons de repas et séries pour mieux repérer les répétitions.",
+              card5Title: "Support d’élimination",
+              card5Text:
+                "Suivez les phases d’élimination, de réintroduction et de stabilisation pour low-FODMAP, gluten, produits laitiers ou votre protocole.",
+              card6Title: "Sauvegarde et synchronisation",
+              card6Text:
+                "Utilisez FoodTrace hors ligne, connectez-vous pour la synchronisation cloud gratuite optionnelle ou exportez sauvegardes locales et CSV.",
+            },
+            premium: {
+              title: "Premium ajoute plus de profondeur :",
+              text:
+                "corrélations ingrédients-symptômes, journal photo des repas, modèles illimités, export PDF clinique et résumés ciblés par IA.",
+            },
+            legal: {
+              title: "Centre légal",
+              lede:
+                "Des règles claires pour un journal personnel d’alimentation et de symptômes. Ces pages expliquent comment FoodTrace fonctionne, ce qu’il n’est pas et comment nous contacter.",
+              privacyKicker: "Confidentialité",
+              privacyTitle: "Politique de confidentialité",
+              privacyText:
+                "Comment les données de l’app, la synchronisation, les achats, l’analyse et les fournisseurs sont gérés.",
+              termsKicker: "Conditions",
+              termsTitle: "Conditions d’utilisation",
+              termsText:
+                "Règles d’utilisation, limites, abonnements et avertissements médicaux.",
+              accountKicker: "Compte",
+              accountTitle: "Supprimer le compte",
+              accountText:
+                "Étapes de suppression du compte et explications sur la suppression des données.",
+              supportKicker: "Aide",
+              supportTitle: "Contact",
+              supportText:
+                "Questions sur FoodTrace, la confidentialité ou les demandes liées au compte.",
+            },
+            disclaimer: {
+              title: "Ce n’est pas un dispositif médical",
+              text:
+                "FoodTrace sert au suivi personnel et à la réflexion. Il ne fournit pas de conseil médical, de diagnostic ou de traitement. Si un symptôme vous inquiète, consultez un professionnel de santé qualifié.",
+            },
+            footer: {
+              privacy: "Politique de confidentialité",
+              terms: "Conditions d’utilisation",
+              delete: "Supprimer le compte",
+            },
+          },
+          es: {
+            pageTitle: "FoodTrace - Diario de comida y síntomas",
+            pageDescription:
+              "FoodTrace es un diario de comida y síntomas que funciona sin conexión. Registra comidas, macros, hidratación y síntomas para descubrir patrones.",
+            nav: {
+              features: "Funciones",
+              legal: "Legal",
+              privacy: "Privacidad",
+              terms: "Términos",
+              contact: "Contacto",
+            },
+            hero: {
+              eyebrow: "Diario de comida y síntomas",
+              title: "Entiende qué te dicen tus comidas.",
+              lede:
+                "FoodTrace te ayuda a registrar comida, síntomas, macros, agua y contexto diario para ver patrones con más claridad. Funciona primero sin conexión, es privado por defecto y está listo cuando tu cuerpo deja pistas.",
+              primaryCta: "Ver funciones",
+              secondaryCta: "Ver centro legal",
+              badgeAccount: "No requiere cuenta",
+              badgeSync: "Sincronización gratis",
+              badgeAndroid: "Aplicación Android",
+            },
+            images: {
+              featureAlt:
+                "Vista previa de FoodTrace con pantallas de comidas, síntomas y análisis",
+              screen1Alt: "Pantalla de registro de comidas de FoodTrace",
+              screen2Alt: "Pantalla de tendencias nutricionales de FoodTrace",
+              screen3Alt: "Pantalla de seguimiento de síntomas de FoodTrace",
+            },
+            screens: {
+              title: "Ve claramente el flujo diario.",
+              lede:
+                "Las vistas más grandes muestran cómo FoodTrace pasa del registro rápido al contexto nutricional y la revisión de síntomas.",
+              card1Title: "Registra comidas rápido",
+              card1Text: "con comida y contexto diario en un solo lugar.",
+              card2Title: "Revisa tendencias nutricionales",
+              card2Text: "sin adivinar qué cambió.",
+              card3Title: "Conecta síntomas",
+              card3Text: "con comidas, horarios y patrones.",
+            },
+            features: {
+              title: "Una forma más tranquila de seguir desencadenantes.",
+              lede:
+                "Registro diario rápido, datos nutricionales honestos y contexto de síntomas en un lugar - sin convertir tus notas de salud en una hoja de cálculo.",
+              card1Title: "Registro de comida y comidas",
+              card1Text:
+                "Añade ingredientes por comida, reutiliza alimentos frecuentes, guarda plantillas y escanea productos envasados con código de barras.",
+              card2Title: "Nutrición que se mantiene honesta",
+              card2Text:
+                "Nutrición basada en USDA para alimentos escritos y valores congelados por 100 g para escaneos, con advertencias visibles para estimaciones de IA.",
+              card3Title: "Digestión y síntomas",
+              card3Text:
+                "Registra acidez, reflujo, hinchazón, náuseas, cólicos, diarrea, intensidad, tipo de heces, estrés, sueño, ánimo e hidratación.",
+              card4Title: "Tendencias y patrones",
+              card4Text:
+                "Revisa tendencias de macros, superposiciones de síntomas, mapas de calor, comparaciones de comidas y rachas para ver patrones repetidos.",
+              card5Title: "Apoyo de eliminación",
+              card5Text:
+                "Sigue fases de eliminación, reintroducción y estabilización para low-FODMAP, gluten, lácteos o tu propio protocolo.",
+              card6Title: "Copia y sincronización",
+              card6Text:
+                "Usa FoodTrace sin conexión, inicia sesión para sincronización cloud gratuita opcional o exporta copias locales y archivos CSV.",
+            },
+            premium: {
+              title: "Premium añade más profundidad:",
+              text:
+                "correlaciones ingrediente-síntoma, registro de comidas con foto, plantillas ilimitadas, exportación clínica en PDF y resúmenes de enfoque con IA.",
+            },
+            legal: {
+              title: "Centro legal",
+              lede:
+                "Políticas claras para un diario personal de comida y síntomas. Estas páginas explican cómo funciona FoodTrace, qué no es y cómo contactarnos.",
+              privacyKicker: "Privacidad",
+              privacyTitle: "Política de privacidad",
+              privacyText:
+                "Cómo se gestionan datos de la app, sincronización, compras, analíticas y proveedores.",
+              termsKicker: "Términos",
+              termsTitle: "Términos de servicio",
+              termsText:
+                "Reglas de uso, limitaciones, suscripciones y avisos médicos.",
+              accountKicker: "Cuenta",
+              accountTitle: "Eliminar cuenta",
+              accountText:
+                "Pasos para eliminar tu cuenta y entender la eliminación de datos.",
+              supportKicker: "Soporte",
+              supportTitle: "Contacto",
+              supportText:
+                "Preguntas sobre FoodTrace, privacidad o solicitudes de cuenta.",
+            },
+            disclaimer: {
+              title: "No es un dispositivo médico",
+              text:
+                "FoodTrace es para seguimiento y reflexión personal. No proporciona consejo médico, diagnóstico ni tratamiento. Si un síntoma te preocupa, habla con un profesional sanitario cualificado.",
+            },
+            footer: {
+              privacy: "Política de privacidad",
+              terms: "Términos de servicio",
+              delete: "Eliminar cuenta",
+            },
+          },
+        };
+
+        var lang = window.SITE_LANG || "en";
+        var copy = translations[lang] || translations.en;
+        document.title = copy.pageTitle;
+        var description = document.querySelector('meta[name="description"]');
+        if (description) {
+          description.setAttribute("content", copy.pageDescription);
+        }
+
+        function lookup(path) {
+          var value = copy;
+          path.split(".").forEach(function (part) {
+            if (value !== undefined) {
+              value = value[part];
+            }
+          });
+          return value;
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach(function (element) {
+          var value = lookup(element.getAttribute("data-i18n"));
+          if (value !== undefined) {
+            element.textContent = value;
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-alt]").forEach(function (element) {
+          var value = lookup(element.getAttribute("data-i18n-alt"));
+          if (value !== undefined) {
+            element.setAttribute("alt", value);
+          }
+        });
+
+        document
+          .querySelectorAll("[data-localized-link]")
+          .forEach(function (element) {
+            var href = element.getAttribute("href") || "";
+            if (href.indexOf("mailto:") === 0) {
+              return;
+            }
+            if (href.charAt(0) === "#") {
+              return;
+            }
+            var parts = href.split("#");
+            var base = parts[0].split("?")[0];
+            var hash = parts[1] ? "#" + parts[1] : "";
+            element.setAttribute("href", base + "?lang=" + lang + hash);
+          });
+
+        document.querySelectorAll("#lang-switcher a").forEach(function (link) {
+          if (link.getAttribute("href") === "?lang=" + lang) {
+            link.classList.add("active");
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
