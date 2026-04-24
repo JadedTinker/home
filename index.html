@@ -3,328 +3,277 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legal — FoodTrace</title>
+    <title>FoodTrace — Food & symptom diary</title>
+    <meta
+      name="description"
+      content="FoodTrace is a food and symptom diary. Log what you eat, how you feel, and uncover your food triggers. Works offline. Available on Android."
+    />
+    <link rel="icon" type="image/png" href="img/icon.png" />
     <link rel="stylesheet" href="style.css" />
-    <script>
-      (function () {
-        var supported = ["en", "pl", "de", "fr", "es"];
-        var param = new URLSearchParams(location.search).get("lang");
-        var nav = (navigator.language || navigator.userLanguage || "")
-          .split("-")[0]
-          .toLowerCase();
-        var lang =
-          supported.indexOf(param) !== -1
-            ? param
-            : supported.indexOf(nav) !== -1
-            ? nav
-            : "en";
-        window.SITE_LANG = lang;
-        document.documentElement.lang = lang;
-      })();
-    </script>
     <style>
-      .legal-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-top: 1.5rem;
+      .container {
+        max-width: 960px;
       }
-      .legal-link {
+
+      .site-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 1.25rem 0;
+        margin-bottom: 0;
+        border-bottom: none;
+        text-align: left;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+        border-radius: 0.5rem;
+      }
+
+      .brand span {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        font-size: 0.875rem;
+      }
+
+      .site-nav a {
+        color: var(--text-muted);
+      }
+
+      .site-nav a:hover {
+        color: var(--primary);
+      }
+
+      .hero {
+        padding: 3rem 0 2.5rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+        line-height: 1.15;
+        margin: 0 0 1rem;
+        color: var(--text);
+        font-weight: 800;
+      }
+
+      .hero .tagline {
+        font-size: 1.125rem;
+        color: var(--text-muted);
+        max-width: 36rem;
+        margin: 0 auto 1.5rem;
+      }
+
+      .hero-badges {
+        display: inline-flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.8125rem;
+        color: var(--text-muted);
+      }
+
+      .hero-badges span {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 0.25rem 0.75rem;
+        background: var(--surface);
+      }
+
+      .screens {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0 3rem;
+      }
+
+      .screens img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+
+      @media (max-width: 720px) {
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+        .screens {
+          grid-template-columns: 1fr;
+          max-width: 20rem;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem;
+        color: var(--text);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature {
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 0.75rem;
-        padding: 1.25rem 1.5rem;
-        text-decoration: none;
-        color: var(--text);
-        transition: border-color 0.15s;
+        padding: 1.25rem 1.25rem;
       }
-      .legal-link:hover {
-        border-color: var(--primary);
-      }
-      .legal-link-title {
-        font-weight: 600;
+
+      .feature h3 {
         font-size: 0.9375rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+        color: var(--text);
       }
-      .legal-link-desc {
+
+      .feature p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .premium-note {
         font-size: 0.8125rem;
         color: var(--text-muted);
-        margin-top: 0.2rem;
+        text-align: center;
+        margin: -0.5rem 0 2rem;
       }
-      .legal-link-arrow {
-        color: var(--text-muted);
-        font-size: 1.25rem;
-        flex-shrink: 0;
+
+      footer {
+        margin-top: 3rem;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- Language switcher -->
-      <nav class="lang-switcher" id="lang-switcher">
-        <a href="?lang=en">EN</a>
-        <a href="?lang=pl">PL</a>
-        <a href="?lang=de">DE</a>
-        <a href="?lang=fr">FR</a>
-        <a href="?lang=es">ES</a>
-      </nav>
-
-      <!-- EN -->
-      <div class="lang-block" data-lang="en">
-        <header>
-          <p class="app-name">FoodTrace</p>
-          <h1>Legal</h1>
-          <p class="meta">
-            Jaded Tinker &nbsp;·&nbsp;
-            <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
-          </p>
-        </header>
-        <div class="legal-links">
-          <a href="privacy.html?lang=en" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Privacy Policy</div>
-              <div class="legal-link-desc">
-                How we collect, use, and protect your data (GDPR &amp; CCPA)
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="terms.html?lang=en" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Terms of Service</div>
-              <div class="legal-link-desc">
-                Your agreement with Jaded Tinker when using the app
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="delete-account.html?lang=en" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Delete Account</div>
-              <div class="legal-link-desc">
-                How to request deletion of your account and data
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
+      <header class="site-header">
+        <div class="brand">
+          <img src="img/icon.png" alt="FoodTrace icon" />
+          <span>FoodTrace</span>
         </div>
-        <footer>
-          <p>© 2026 Jaded Tinker. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="mailto:jadedtinker@proton.me">Contact Support</a>
-          </div>
-        </footer>
+        <nav class="site-nav">
+          <a href="#features">Features</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:jadedtinker@proton.me">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Track meals, symptoms &amp; macros to uncover your food triggers.</h1>
+        <p class="tagline">
+          FoodTrace is a food and symptom diary in one app. Log what you eat,
+          how you feel, and the small daily things that affect your body — then
+          look back later to see patterns you would otherwise miss.
+        </p>
+        <div class="hero-badges">
+          <span>Works offline</span>
+          <span>No account required</span>
+          <span>Free cloud sync</span>
+          <span>Android</span>
+        </div>
+      </section>
+
+      <div class="screens">
+        <img src="img/screen-1.png" alt="FoodTrace meal log screen" loading="lazy" />
+        <img src="img/screen-2.png" alt="FoodTrace nutrition trends screen" loading="lazy" />
+        <img src="img/screen-3.png" alt="FoodTrace symptom tracking screen" loading="lazy" />
       </div>
 
-      <!-- PL -->
-      <div class="lang-block" data-lang="pl" hidden>
-        <header>
-          <p class="app-name">FoodTrace</p>
-          <h1>Dokumenty Prawne</h1>
-          <p class="meta">
-            Jaded Tinker &nbsp;·&nbsp;
-            <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
+      <h2 class="section-title" id="features">What you get</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Food &amp; meal logging</h3>
+          <p>
+            Add ingredients by meal with autocomplete from your history. Pinned
+            foods, meal templates, and a barcode scanner for packaged products.
           </p>
-        </header>
-        <div class="legal-links">
-          <a href="privacy.html?lang=pl" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Polityka Prywatności</div>
-              <div class="legal-link-desc">
-                Jak zbieramy i chronimy Twoje dane (RODO i CCPA)
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="terms.html?lang=pl" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Warunki Korzystania</div>
-              <div class="legal-link-desc">
-                Umowa z Jaded Tinker dotycząca korzystania z aplikacji
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="delete-account.html?lang=pl" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Usuń Konto</div>
-              <div class="legal-link-desc">
-                Jak poprosić o usunięcie konta i powiązanych danych
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
         </div>
-        <footer>
-          <p>© 2026 Jaded Tinker. Wszelkie prawa zastrzeżone.</p>
-          <div class="footer-links">
-            <a href="mailto:jadedtinker@proton.me">Kontakt</a>
-          </div>
-        </footer>
+        <div class="feature">
+          <h3>Nutrition that's honest</h3>
+          <p>
+            8,000+ foods from the USDA FoodData Central database. Calories,
+            protein, carbs, fat, fiber, and water. Per-100g or
+            estimated-portion display.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Digestion &amp; symptoms</h3>
+          <p>
+            Log heartburn, bloating, nausea, cramps, and more on a 1–10 scale.
+            Bristol Stool Scale, mood, energy, stress, sleep, and hydration.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Trends &amp; patterns</h3>
+          <p>
+            7, 30, and 90-day macro charts with an optional symptom overlay. A
+            symptom heatmap, side-by-side meal comparison, and streak tracking.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Elimination protocol</h3>
+          <p>
+            Guided elimination, reintroduction, and stabilization phases.
+            Works for low-FODMAP, gluten, dairy, or your own protocol.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Backup &amp; sync</h3>
+          <p>
+            Fully offline first. Optional free cloud sync after sign-in. Local
+            JSON backup with checksum and CSV export.
+          </p>
+        </div>
       </div>
 
-      <!-- DE -->
-      <div class="lang-block" data-lang="de" hidden>
-        <header>
-          <p class="app-name">FoodTrace</p>
-          <h1>Rechtliches</h1>
-          <p class="meta">
-            Jaded Tinker &nbsp;·&nbsp;
-            <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
-          </p>
-        </header>
-        <div class="legal-links">
-          <a href="privacy.html?lang=de" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Datenschutzerklärung</div>
-              <div class="legal-link-desc">
-                Wie wir Ihre Daten erheben und schützen (DSGVO &amp; CCPA)
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="terms.html?lang=de" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Nutzungsbedingungen</div>
-              <div class="legal-link-desc">
-                Ihre Vereinbarung mit Jaded Tinker bei Nutzung der App
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="delete-account.html?lang=de" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Konto Löschen</div>
-              <div class="legal-link-desc">
-                So beantragen Sie die Löschung Ihres Kontos und Ihrer Daten
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-        </div>
-        <footer>
-          <p>© 2026 Jaded Tinker. Alle Rechte vorbehalten.</p>
-          <div class="footer-links">
-            <a href="mailto:jadedtinker@proton.me">Kontakt</a>
-          </div>
-        </footer>
+      <p class="premium-note">
+        Premium adds ingredient–symptom correlations, photo meal logging,
+        unlimited meal templates, clinical PDF export, and AI focus summaries.
+      </p>
+
+      <div class="disclaimer">
+        <span class="disclaimer-title">Not a medical device</span>
+        <p>
+          FoodTrace is for personal tracking and reflection. It does not
+          provide medical advice, diagnosis, or treatment. If a symptom worries
+          you, talk to a qualified healthcare professional.
+        </p>
       </div>
 
-      <!-- FR -->
-      <div class="lang-block" data-lang="fr" hidden>
-        <header>
-          <p class="app-name">FoodTrace</p>
-          <h1>Documents Légaux</h1>
-          <p class="meta">
-            Jaded Tinker &nbsp;·&nbsp;
-            <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
-          </p>
-        </header>
-        <div class="legal-links">
-          <a href="privacy.html?lang=fr" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Politique de Confidentialité</div>
-              <div class="legal-link-desc">
-                Comment nous collectons et protégeons vos données (RGPD &amp;
-                CCPA)
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="terms.html?lang=fr" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Conditions d'Utilisation</div>
-              <div class="legal-link-desc">
-                Votre accord avec Jaded Tinker pour l'utilisation de
-                l'application
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="delete-account.html?lang=fr" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Supprimer le Compte</div>
-              <div class="legal-link-desc">
-                Comment demander la suppression de votre compte et de vos
-                données
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
+      <footer>
+        <p>© 2026 Jaded Tinker &nbsp;·&nbsp;
+          <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
+        </p>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="delete-account.html">Delete Account</a>
         </div>
-        <footer>
-          <p>© 2026 Jaded Tinker. Tous droits réservés.</p>
-          <div class="footer-links">
-            <a href="mailto:jadedtinker@proton.me">Contact</a>
-          </div>
-        </footer>
-      </div>
-
-      <!-- ES -->
-      <div class="lang-block" data-lang="es" hidden>
-        <header>
-          <p class="app-name">FoodTrace</p>
-          <h1>Documentos Legales</h1>
-          <p class="meta">
-            Jaded Tinker &nbsp;·&nbsp;
-            <a href="mailto:jadedtinker@proton.me">jadedtinker@proton.me</a>
-          </p>
-        </header>
-        <div class="legal-links">
-          <a href="privacy.html?lang=es" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Política de Privacidad</div>
-              <div class="legal-link-desc">
-                Cómo recopilamos y protegemos sus datos (RGPD y CCPA)
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="terms.html?lang=es" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Términos de Servicio</div>
-              <div class="legal-link-desc">
-                Su acuerdo con Jaded Tinker al usar la aplicación
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-          <a href="delete-account.html?lang=es" class="legal-link"
-            ><div>
-              <div class="legal-link-title">Eliminar Cuenta</div>
-              <div class="legal-link-desc">
-                Cómo solicitar la eliminación de su cuenta y datos
-              </div>
-            </div>
-            <span class="legal-link-arrow">›</span></a
-          >
-        </div>
-        <footer>
-          <p>© 2026 Jaded Tinker. Todos los derechos reservados.</p>
-          <div class="footer-links">
-            <a href="mailto:jadedtinker@proton.me">Contacto</a>
-          </div>
-        </footer>
-      </div>
+      </footer>
     </div>
-
-    <script>
-      (function () {
-        var lang = window.SITE_LANG;
-        var blocks = document.querySelectorAll(".lang-block");
-        for (var i = 0; i < blocks.length; i++) {
-          blocks[i].hidden = blocks[i].dataset.lang !== lang;
-        }
-        var links = document.querySelectorAll("#lang-switcher a");
-        for (var j = 0; j < links.length; j++) {
-          var href = links[j].getAttribute("href");
-          if (href === "?lang=" + lang) {
-            links[j].classList.add("active");
-          }
-        }
-      })();
-    </script>
   </body>
 </html>
