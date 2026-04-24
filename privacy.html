@@ -34,6 +34,13 @@
         <a href="?lang=es">ES</a>
       </nav>
 
+      <nav class="legal-doc-nav" id="legal-doc-nav" aria-label="Legal pages">
+        <a href="index.html" data-legal-page="home">Home</a>
+        <a href="privacy.html" data-legal-page="privacy" aria-current="page">Privacy</a>
+        <a href="terms.html" data-legal-page="terms">Terms</a>
+        <a href="delete-account.html" data-legal-page="delete">Delete account</a>
+      </nav>
+
       <!-- ═══════════════════════════ ENGLISH ═══════════════════════════ -->
       <div class="lang-block" data-lang="en">
         <header>
@@ -3694,6 +3701,26 @@
           if (href === "?lang=" + lang) {
             links[j].classList.add("active");
           }
+        }
+        var labels = {
+          en: { home: "Home", privacy: "Privacy", terms: "Terms", delete: "Delete account" },
+          pl: { home: "Start", privacy: "Prywatność", terms: "Warunki", delete: "Usuń konto" },
+          de: { home: "Start", privacy: "Datenschutz", terms: "Bedingungen", delete: "Konto löschen" },
+          fr: { home: "Accueil", privacy: "Confidentialité", terms: "Conditions", delete: "Supprimer le compte" },
+          es: { home: "Inicio", privacy: "Privacidad", terms: "Términos", delete: "Eliminar cuenta" },
+        };
+        var paths = {
+          home: "index.html",
+          privacy: "privacy.html",
+          terms: "terms.html",
+          delete: "delete-account.html",
+        };
+        var suffix = lang === "en" ? "" : "?lang=" + lang;
+        var navLinks = document.querySelectorAll("#legal-doc-nav a");
+        for (var k = 0; k < navLinks.length; k++) {
+          var page = navLinks[k].dataset.legalPage;
+          navLinks[k].textContent = labels[lang][page];
+          navLinks[k].href = paths[page] + suffix;
         }
       })();
     </script>
